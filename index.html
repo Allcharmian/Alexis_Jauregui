@@ -4,73 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infografía: Fundamentos del Derecho</title>
+    
     <style>
-        /* Estilos básicos para legibilidad. Puedes borrarlos y usar los tuyos. */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
+        /* --- Configuración Global --- */
+        :root {
+            --color-primario: #0056b3; /* Azul oscuro para títulos */
+            --color-secundario: #007BFF; /* Azul brillante para acentos */
+            --color-texto: #333;
+            --color-fondo: #f0f4f8; /* Un fondo gris azulado muy suave */
+            --color-tarjeta: #ffffff;
+            --sombra: 0 6px 12px rgba(0, 0, 0, 0.08);
+            --radio-borde: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
         }
+
+        /* --- Contenedor Principal --- */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        /* --- Encabezado de la Infografía --- */
         header {
             text-align: center;
-            border-bottom: 2px solid #0056b3;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        header h1 {
-            color: #0056b3;
-            margin: 0;
-        }
-        section {
-            margin-bottom: 30px;
             padding: 20px;
-            background-color: #fdfdfd;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: var(--color-primario);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        /* --- Cuadrícula de la Infografía (Grid) --- */
+        .infographic-grid {
+            display: grid;
+            /* Dos columnas de igual tamaño */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 25px;
+        }
+
+        /* --- Estilo de las Tarjetas (Cards) --- */
+        .card {
+            background-color: var(--color-tarjeta);
+            border-radius: var(--radio-borde);
+            box-shadow: var(--sombra);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* --- Estilo de las Imágenes --- */
+        .card img {
+            width: 100%;
+            height: 180px; /* Altura fija para uniformidad */
+            object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+            border-radius: var(--radio-borde);
+            margin-bottom: 20px;
+            /* Fondo para el marcador de posición */
+            background-color: #eee;
             border: 1px solid #ddd;
-            border-radius: 5px;
         }
-        h2 {
-            color: #007BFF;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+
+        /* --- Estilo del Contenido de las Tarjetas --- */
+        .card h2 {
+            color: var(--color-secundario);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--color-fondo);
+            padding-bottom: 10px;
         }
-        h3 {
-            color: #17a2b8;
-        }
-        ul, ol {
-            padding-left: 20px;
-        }
-        li {
+
+        .card h3 {
+            color: var(--color-primario);
+            font-size: 1.2rem;
+            margin-top: 20px;
             margin-bottom: 10px;
         }
-        strong {
-            color: #343a40;
+
+        .card p {
+            margin-bottom: 15px;
         }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #777;
+
+        .card ul {
+            padding-left: 20px;
         }
+
+        .card li {
+            margin-bottom: 10px;
+        }
+
+        .card strong {
+            color: var(--color-primario);
+        }
+
+        /* --- Sección de Conclusión y Referencias --- */
+        .conclusion-section {
+            grid-column: 1 / -1; /* Hace que esta tarjeta ocupe todo el ancho */
+            background-color: #e9ecef; /* Un color de fondo ligeramente diferente */
+            border: 1px solid #d6dde4;
+        }
+
         .references ol {
             list-style-type: decimal;
             padding-left: 20px;
             text-align: left;
         }
-         .references li {
+        
+        .references li {
             margin-bottom: 15px;
             line-height: 1.5;
+            font-size: 0.9em;
         }
+
+        /* --- Diseño Responsivo --- */
+        @media (max-width: 900px) {
+            .infographic-grid {
+                /* Una sola columna en pantallas medianas y pequeñas */
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .card h2 {
+                font-size: 1.4rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -81,115 +167,118 @@
             <h1>Infografía Ciudadana: Fundamentos del Derecho</h1>
         </header>
 
-        <main>
-            <section id="definicion-derecho">
+        <main class="infographic-grid">
+            
+            <section class="card" id="definicion-derecho">
                 <h2>¿Qué es el Derecho?</h2>
+                
+                <img src="imagen.png" alt="Ilustración sobre el concepto de Derecho">
                 
                 <article>
                     <h3>Derecho como Norma (Sentido Objetivo)</h3>
-                    <p>Es el conjunto o sistema de reglas que indica a las personas la forma en que deben comportarse. Se utiliza como sinónimo de orden jurídico o conjunto de normas que rigen la convivencia humana.</p>
+                    <p>Es el conjunto o sistema de reglas que indica a las personas la forma en que deben comportarse. Se utiliza como sinónimo de orden jurídico.</p>
                 </article>
 
                 <article>
                     <h3>Derecho como Facultad (Sentido Subjetivo)</h3>
-                    <p>Se refiere a la gama de posibilidades o autorizaciones que tienen las personas, las cuales deben ser garantizadas y reconocidas por el Estado. Es la potestad que tiene una persona de hacer o no hacer, y de exigir algo que le corresponde.</p>
+                    <p>Se refiere a la gama de posibilidades o autorizaciones que tienen las personas, las cuales deben ser garantizadas y reconocidas por el Estado.</p>
                 </article>
 
                 <article>
                     <h3>Derecho Natural vs. Derecho Positivo</h3>
-                    
-                    <h4>Derecho Natural</h4>
-                    <p>Es el conjunto de normas que regulan la conducta humana y se caracterizan por ser justas, eternas e inmutables. Sostiene que existen principios morales y de justicia universalmente válidos que trascienden la voluntad humana, es decir, son innatos al hombre.</p>
-                    
-                    <h4>Derecho Positivo</h4>
-                    <p>Es el sistema de normas jurídicas que regula efectivamente la vida de las personas en un determinado momento histórico. Este derecho deriva de la creación humana y es establecido por una autoridad competente (como el Estado).</p>
+                    <p><strong>Natural:</strong> Principios universales, justos e inmutables, que se consideran innatos al ser humano (p.ej., el derecho a la vida).</p>
+                    <p><strong>Positivo:</strong> Normas creadas por el ser humano y establecidas por una autoridad en un momento y lugar determinados (p.ej., un código civil).</p>
                 </article>
             </section>
 
-            <section id="fuentes-derecho">
+            <section class="card" id="fuentes-derecho">
                 <h2>Las Fuentes del Derecho</h2>
-                <p>Es el término usado para referirse al "principio, fundamento u origen de algo". En el ámbito jurídico, son el lugar de donde se originan las normas jurídicas.</p>
+                
+                <img src="imagen.png" alt="Ilustración sobre las fuentes del derecho, como un manantial">
+                
+                <p>Son el origen, principio o fundamento de donde surgen las normas jurídicas.</p>
                 
                 <h3>Clasificación Tradicional:</h3>
                 <ul>
-                    <li><strong>Fuentes Históricas:</strong> Son todos aquellos antecedentes, como documentos, vestigios o acontecimientos del pasado, que tuvieron vigencia y que resultan útiles para entender el origen de las normas presentes.</li>
-                    <li><strong>Fuentes Reales (o Materiales):</strong> Son los elementos y factores "metajurídicos" (externos al derecho) que influyen en la creación de las normas. Estos pueden ser aspectos sociológicos, económicos, políticos, culturales o religiosos de una sociedad.</li>
-                    <li><strong>Fuentes Formales:</strong> Son los procesos de manifestación de las normas jurídicas. Más precisamente, son el *resultado* de esos procesos de creación reconocidos, como lo son la ley, la jurisprudencia y la costumbre.</li>
+                    <li><strong>Fuentes Históricas:</strong> Documentos, vestigios o acontecimientos del pasado que sirvieron para la creación de leyes actuales (p.ej., el Derecho Romano).</li>
+                    <li><strong>Fuentes Reales (o Materiales):</strong> Factores sociales, económicos, políticos o culturales que influyen en la creación de una norma (p.ej., una crisis económica que motiva una nueva ley fiscal).</li>
+                    <li><strong>Fuentes Formales:</strong> Son los procesos de creación de las normas. Las principales son: la ley, la jurisprudencia y la costumbre.</li>
                 </ul>
             </section>
 
-            <section id="tratados-internacionales">
-                <h2>Tratados Internacionales y el Derecho Mexicano</h2>
+            <section class="card" id="tratados-internacionales">
+                <h2>Tratados Internacionales en México</h2>
                 
-                <article>
-                    <h3>¿Qué son?</h3>
-                    <p>Un tratado internacional es un acuerdo celebrado por escrito entre Estados.</p>
-                </article>
+                <img src="imagen.png" alt="Ilustración de banderas de países y un documento firmado">
+
+                <h3>¿Qué son?</h3>
+                <p>Son acuerdos por escrito entre Estados (países) que establecen derechos y obligaciones mutuas.</p>
                 
-                <article>
-                    <h3>Relación con el Ordenamiento Mexicano</h3>
-                    <p>Son reconocidos como una fuente de Derecho. El Artículo 133 de la Constitución establece que los tratados son "Ley Suprema de toda la Unión", siempre y cuando:</p>
-                    <ul>
-                        <li>Estén de acuerdo con la Constitución.</li>
-                        <li>Hayan sido celebrados por el Presidente de la República.</li>
-                        <li>Cuenten con la aprobación del Senado.</li>
-                    </ul>
-                    <p>Además, el Artículo 1° constitucional establece que los derechos humanos reconocidos en los tratados internacionales de los que México es parte, gozan del mismo nivel de protección que los reconocidos en la Constitución.</p>
-                </article>
+                <h3>Su Relación con el Derecho Mexicano</h3>
+                <p>El Art. 133 de la Constitución los reconoce como <strong>"Ley Suprema de toda la Unión"</strong>, junto con la propia Constitución y las leyes federales.</p>
+                <p>Además, el Art. 1° establece que los <strong>derechos humanos</strong> de los tratados internacionales tienen el mismo nivel de protección que los constitucionales.</p>
             </section>
 
-            <section id="norma-juridica">
+            <section class="card" id="norma-juridica">
                 <h2>La Norma Jurídica</h2>
+                
+                <img src="imagen.png" alt="Ilustración de una regla o un pergamino legal">
                 
                 <article>
                     <h3>Definición</h3>
-                    <p>Es una "orden general, dada por quien tiene autoridad para regular la conducta de otros".</p>
+                    <p>Es una orden general, dada por una autoridad competente, que tiene como fin regular la conducta de las personas.</p>
                 </article>
 
                 <article>
                     <h3>Tres Características Principales:</h3>
                     <ul>
-                        <li><strong>Obligatoriedad:</strong> Se distingue del consejo o la recomendación; es una orden que debe cumplirse.</li>
-                        <li><strong>Generalidad:</strong> Está dirigida a una totalidad (extensa o restringida) de personas, no a un individuo en particular.</li>
-                        <li><strong>Autoridad:</strong> Es dada por quien tiene la facultad o el poder reconocido para emitirla.</li>
+                        <li><strong>Obligatoriedad:</strong> Es un mandato que debe cumplirse, no una sugerencia.</li>
+                        <li><strong>Generalidad:</strong> Se aplica a todas las personas que se encuentren en la situación descrita por la norma, no a alguien en específico.</li>
+                        <li><strong>Autoridad:</strong> Es creada por un órgano con el poder reconocido para hacerlo (como el Congreso).</li>
                     </ul>
                 </article>
             </section>
 
-            <section id="ramas-derecho">
+            <section class="card" id="ramas-derecho">
                 <h2>Ramas del Derecho: Público vs. Privado</h2>
+                
+                <img src="imagen.png" alt="Ilustración de una balanza de la justicia">
                 
                 <article>
                     <h3>Derecho Público</h3>
-                    <p>Es el conjunto de normas que regula la estructura, funcionamiento y funciones del Estado, así como las relaciones de este (actuando en su rol soberano) con los particulares. En estas relaciones, el Estado actúa con autoridad, generando una relación de "supra a subordinación" (superior a subordinado).</p>
+                    <p>Regula la organización del Estado y su relación con los ciudadanos. El Estado actúa con autoridad (plano de "supra a subordinación").</p>
+                    <p><strong>Ejemplos:</strong> Derecho Constitucional, Derecho Penal, Derecho Administrativo.</p>
                 </article>
                 
                 <article>
                     <h3>Derecho Privado</h3>
-                    <p>Es la rama del derecho que se ocupa de las relaciones entre particulares, ya sean personas físicas o jurídicas. Si el Estado interviene, lo hace desprovisto de su autoridad soberana, actuando como un particular más. Las relaciones son de "coordinación" (de igual a igual).</p>
+                    <p>Regula las relaciones entre los particulares (personas o empresas). El Estado no interviene o lo hace como un particular más (plano de "coordinación" o igualdad).</p>
+                    <p><strong>Ejemplos:</strong> Derecho Civil (contratos, familia), Derecho Mercantil (empresas).</p>
                 </article>
             </section>
 
-            <section id="conclusion-referencias">
-                <h2>Conclusión</h2>
-                <p>Como legislador(a), y considerando el grave contexto de la violencia sexual infantil, así como el "derecho al tiempo" reconocido por la SCJN y la brecha existente entre la norma y la realidad, mi propuesta se centraría en fortalecer la *implementación* de la justicia y la reparación del daño.</p>
+            <section class="card conclusion-section" id="conclusion-referencias">
+                <h2>Conclusión de la Actividad</h2>
+                
+                <img src="imagen.png" alt="Ilustración sobre protección a la niñez">
+
+                <p>Como legislador(a), y considerando el grave contexto de la violencia sexual infantil, así como el "derecho al tiempo" reconocido por la SCJN y la brecha existente entre la norma y la realidad, mi propuesta se centraría en fortalecer la <em>implementación</em> de la justicia y la reparación del daño.</p>
                 <p>Propondría adicionar un artículo a la <em>Ley General de los Derechos de Niñas, Niños y Adolescentes</em> (LGDNNA) que ordene la creación obligatoria de "Unidades de Atención Integral y Justicia Especializada para la Niñez Víctima de Violencia Sexual" (UNAJIN) en cada Fiscalía estatal del país.</p>
                 <p>Esta modificación al <strong>Derecho positivo</strong> transformaría una <strong>fuente real</strong> (la necesidad social urgente de evitar la revictimización y la falta de personal capacitado) en una <strong>fuente formal</strong> (la ley). Esta nueva <strong>norma jurídica</strong> no solo <em>permitiría</em> su creación, sino que la haría <em>obligatoria</em>, estableciendo una obligación clara de <strong>Derecho Público</strong> para el Estado: garantizar procesos especializados.</p>
                 <p>Dicha norma aseguraría el <strong>Derecho como facultad</strong> (subjetivo) de las víctimas a ser atendidas por personal psicológico, médico y ministerial permanente, sensible y debidamente financiado, atacando la insuficiencia presupuestal. Esto reforzaría la aplicación del bloque de constitucionalidad, materializando los <strong>tratados internacionales</strong> y el principio del "interés superior de la niñez" en la práctica, asegurando que la imprescriptibilidad de estos delitos no resulte inútil por la negligencia institucional.</p>
                 
-                <hr>
+                <hr style="margin: 25px 0; border: 1px solid #d6dde4;">
 
-                <h2 class="references">Fuentes de Consulta (Formato APA 7)</h2>
-                <ol class="references">
-                    <li>Cárdenas Gracia, J. F. (2016). <em>Introducción al estudio del derecho</em>. Colección Cultura Jurídica. Universidad Nacional Autónoma de México, Instituto de Investigaciones Jurídicas. https://biblio.juridicas.unam.mx/bjv/detalle-libro/3260-introduccion-al-estudio-del-derecho-coleccion-cultura-juridica</li>
-                    <li>García Máynez, E. (2002). <em>Introducción al estudio del derecho</em>. Editorial Porrúa. (Obra original publicada en 1940). https://dmd.unadmexico.mx/contenidos/DCSA/MODULOS/DE/M1_DEHASD/MA/introduccion-al-estudio-del-derecho-eduardo-garcia-maynez.pdf</li>
-                </ol>
+                <div class="references">
+                    <h2 style="color: var(--color-primario);">Fuentes de Consulta (Formato APA 7)</h2>
+                    <ol>
+                        <li>Cárdenas Gracia, J. F. (2016). <em>Introducción al estudio del derecho</em>. Colección Cultura Jurídica. Universidad Nacional Autónoma de México, Instituto de Investigaciones Jurídicas. https://biblio.juridicas.unam.mx/bjv/detalle-libro/3260-introduccion-al-estudio-del-derecho-coleccion-cultura-juridica</li>
+                        <li>García Máynez, E. (2002). <em>Introducción al estudio del derecho</em>. Editorial Porrúa. (Obra original publicada en 1940). https://dmd.unadmexico.mx/contenidos/DCSA/MODULOS/DE/M1_DEHASD/MA/introduccion-al-estudio-del-derecho-eduardo-garcia-maynez.pdf</li>
+                    </ol>
+                </div>
             </section>
-        </main>
 
-        <footer>
-            <p>Infografía generada para la UCA Introducción al Estudio del Derecho.</p>
-        </footer>
+        </main>
 
     </div>
 
